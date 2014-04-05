@@ -9,8 +9,15 @@ function newGame() {
 	$.get("/words.txt", function(x) {
 		words = x.trim().split('\n');
 		//console.log(words);
+		newTimer(30);
 		newWord();
 	});
+}
+
+function newWord() {
+	var nw = words[Math.floor(Math.random()*words.length)];
+	$("#incomplete").text(nw);
+	$("#completed").text("");
 }
 
 function keyHandler(e) {
@@ -28,10 +35,4 @@ function keyHandler(e) {
 	if ( word.length == 0 ) {
 		newWord();	
 	}
-}
-
-function newWord() {
-	var nw = words[Math.floor(Math.random()*words.length)];
-	$("#incomplete").text(nw);
-	$("#completed").text("");
 }
