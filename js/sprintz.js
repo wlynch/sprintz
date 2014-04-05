@@ -1,8 +1,17 @@
+var words = [];
 
 $(document).ready(function() {
-	newWord();
+	newGame();
 	$(document).keypress(keyHandler);
 });
+
+function newGame() {
+	$.get("/words.txt", function(x) {
+		words = x.trim().split('\n');
+		console.log(words);
+		newWord();
+	});
+}
 
 function keyHandler(e) {
 	var key = String.fromCharCode(e.which);
@@ -21,9 +30,8 @@ function keyHandler(e) {
 	}
 }
 
-var words = ["asdf", "qwer", "zxcv"]
-
 function newWord() {
+	console.log(words);
 	var nw = words[Math.floor(Math.random()*words.length)];
 	$("#incomplete").text(nw);
 	$("#completed").text("");
