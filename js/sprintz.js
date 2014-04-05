@@ -1,9 +1,8 @@
 
-
 $(document).ready(function() {
+	newWord();
 	$(document).keypress(keyHandler);
 });
-
 
 function keyHandler(e) {
 	var key = String.fromCharCode(e.which);
@@ -26,7 +25,6 @@ var words = ["asdf", "qwer", "zxcv"]
 
 function newWord() {
 	var nw = words[Math.floor(Math.random()*words.length)];
-	console.log(nw);
 	$("#incomplete").text(nw);
 	$("#completed").text("");
 }
