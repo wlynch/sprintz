@@ -10,7 +10,7 @@
 	<body>
 		<div class="row">
 			<div class="large-1 columns">
-				<span id="incorrect">0</span>
+				<span id="incorrect"></span>
 			</div>
 			<div class="large-10-offset large-1 columns">
 				<span id="timer"></span>
@@ -24,8 +24,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="large-offset-3 large-6 columns">
+			<div class="large-offset-3 large-6 columns" style="text-align:center">
 				<div data-alert class="alert-box warning round" id="status" style="display:none"></div>
+				<a class="button [radius round]" id="newGame" onclick="newGame()" style="text-align:center">New Game</a>
 			</div>
 		</div>
 		<div class="row">

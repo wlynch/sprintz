@@ -1,11 +1,10 @@
 var words = [];
 
-$(document).ready(function() {
-	newGame();
-	$(document).keypress(keyHandler);
-});
-
 function newGame() {
+	$(document).keypress(keyHandler);
+	$('#status').hide();
+	$('#newGame').hide();
+	$('#incorrect').text(0);
 	$.get("/words.txt", function(x) {
 		words = x.trim().split('\n');
 		//console.log(words);
@@ -18,12 +17,15 @@ function endGame() {
 	$(document).off("keypress");
 	$('#status').text("Game over!");
 	$('#status').show();
+	$('#word').hide();
+	$('#newGame').show();
 }
 
 function newWord() {
 	var nw = words[Math.floor(Math.random()*words.length)];
 	$("#incomplete").text(nw);
 	$("#completed").text("");
+	$('#word').show();
 }
 
 function keyHandler(e) {
