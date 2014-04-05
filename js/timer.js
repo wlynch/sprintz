@@ -11,7 +11,8 @@ function timer() {
 	$('#timer').text(count);
 	if (count <= 0) {
 		clearInterval(counter);
-
+		
+		endGame();
 		return;
 	}
 }

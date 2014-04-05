@@ -14,6 +14,12 @@ function newGame() {
 	});
 }
 
+function endGame() {
+	$(document).off("keypress");
+	$('#status').text("Game over!");
+	$('#status').show();
+}
+
 function newWord() {
 	var nw = words[Math.floor(Math.random()*words.length)];
 	$("#incomplete").text(nw);
