@@ -8,7 +8,7 @@ $(document).ready(function() {
 function newGame() {
 	$.get("/words.txt", function(x) {
 		words = x.trim().split('\n');
-		console.log(words);
+		//console.log(words);
 		newWord();
 	});
 }
@@ -31,7 +31,6 @@ function keyHandler(e) {
 }
 
 function newWord() {
-	console.log(words);
 	var nw = words[Math.floor(Math.random()*words.length)];
 	$("#incomplete").text(nw);
 	$("#completed").text("");
