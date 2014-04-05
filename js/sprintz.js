@@ -9,7 +9,7 @@ function newGame() {
 	$.get("/words.txt", function(x) {
 		words = x.trim().split('\n');
 		//console.log(words);
-		newTimer(30);
+		newTimer(2);
 		newWord();
 	});
 }
