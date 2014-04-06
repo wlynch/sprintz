@@ -1,3 +1,7 @@
+#hud {
+	padding-top:10px;
+}
+
 #incorrect {
 	position:fixed;
 	left:25%;
