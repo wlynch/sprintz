@@ -1,24 +1,35 @@
 var words = [];
+var count = 0, mistakes = 0, total_length = 0, time = 60;
 
 function newGame() {
 	$(document).keypress(keyHandler);
 	$('#status').hide();
 	$('#newGame').hide();
+	$('#results').hide();
 	$('#incorrect').text(0);
+	count = 0;
+	mistakes = 0;
+	total_length = 0;
 	$.get("/words.txt", function(x) {
 		words = x.trim().split('\n');
-		//console.log(words);
-		newTimer(2);
+		newTimer(time);
 		newWord();
 	});
 }
 
 function endGame() {
+	// Disable keypresses
 	$(document).off("keypress");
+	// Show game over
+	$('#word').hide();
 	$('#status').text("Game over!");
 	$('#status').show();
-	$('#word').hide();
 	$('#newGame').show();
+	// Show results
+	$('#results').html("WPM: " + (count / (time / 60)) + " <br/> " 
+			+ "Avg word length: " + (total_length / count) + " <br/> "
+			+ "Mistakes: " + mistakes); 
+	$('#results').show();
 }
 
 function newWord() {
@@ -35,12 +46,14 @@ function keyHandler(e) {
 		$('#incomplete').text(word.slice(1));
 		$('#completed').append(key);
 	} else {
-		$("#incorrect").text(parseInt($("#incorrect").text()) + 1);
+		$("#incorrect").text(++mistakes);
 	}
 	
 	var word = $('#incomplete').text().trim();
 	console.log(word.length);
 	if ( word.length == 0 ) {
+		count++;
+		total_length += $('#word').text().trim().length;
 		newWord();	
 	}
 }
