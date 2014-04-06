@@ -46,7 +46,7 @@ function keyHandler(e) {
 	}
 	var key = String.fromCharCode(e.which);
 	var word = $('#incomplete').text().trim();
-	if (key == word.charAt(0).toLowerCase()) {
+	if ((key == word.charAt(0)) || (key == word.charAt(0).toLowerCase())) {
 		$('#completed').append(word.charAt(0));
 		$('#incomplete').text(word.slice(1));
 	} else {
