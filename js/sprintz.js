@@ -10,7 +10,7 @@ function newGame() {
 	count = 0;
 	mistakes = 0;
 	total_length = 0;
-	$.get("/words.txt", function(x) {
+	$.get("words.txt", function(x) {
 		words = x.trim().split('\n');
 		newTimer(time);
 		newWord();
