@@ -1,9 +1,16 @@
+#hud {
+	padding-top:10px;
+	position:fixed;
+	padding:auto;
+}
+
 #word {
 	text-align:center;
 }
 
 #word * {
 	display:inline;
+	font-size: 2em;
 }
 
 #incomplete {
@@ -12,6 +19,10 @@
 
 #status-panel {
 	text-align:center;
+}
+
+h1 {
+	font-size: 8em;
 }
 
 
