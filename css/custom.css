@@ -1,0 +1,17 @@
+#word {
+	text-align:center;
+}
+
+#word * {
+	display:inline;
+}
+
+#incomplete {
+	color:LightGray;
+}
+
+#status-panel {
+	text-align:center;
+}
+
+

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SPRINTZ</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
 	<body>
@@ -23,16 +24,17 @@
 				</center>
 			</div>
 		</div>
-		<div class="row"> <div class="large-offset-3 large-6 columns" style="text-align:center">
+		<div class="row"> 
+			<div class="large-offset-3 large-6 columns" id="status-panel">
 				<div data-alert class="alert-box warning round" id="status" style="display:none"></div>
-				<a class="button [radius round]" id="newGame" onclick="newGame()" style="text-align:center">New Game</a>
 				<div class="panel" id="results" style="display:none"></div>
+				<a class="button radius" id="newGame" onclick="newGame()">New Game</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="large-offset-3 large-6 columns">
-				<div id="word" style="text-align:center">
-					<div id="completed" style="display:inline"></div><div id="incomplete" style="display:inline; color:LightGray"></div>
+				<div id="word">
+					<div id="completed"></div><div id="incomplete"></div>
 				</div>
 			</div>
     </div>

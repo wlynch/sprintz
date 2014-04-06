@@ -40,17 +40,21 @@ function newWord() {
 }
 
 function keyHandler(e) {
+	// Disable backspace
+	if (e.keyCode == 8) {
+		return false;
+	}
 	var key = String.fromCharCode(e.which);
 	var word = $('#incomplete').text().trim();
 	if (key == word.charAt(0)) {
 		$('#incomplete').text(word.slice(1));
 		$('#completed').append(key);
 	} else {
+		// Mistakes were made
 		$("#incorrect").text(++mistakes);
 	}
 	
 	var word = $('#incomplete').text().trim();
-	console.log(word.length);
 	if ( word.length == 0 ) {
 		count++;
 		total_length += $('#word').text().trim().length;
